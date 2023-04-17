@@ -15,7 +15,7 @@ export interface Region {
 
 interface Product {}
 
-export interface FormFields extends FieldValues{
+export interface FormFields extends FieldValues {
     partyType: PartyType
     firstname: string
     lastname: string

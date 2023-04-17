@@ -14,7 +14,7 @@ const SelectRegion = ({ control }: Props) => {
             const firstLetter = option.text[0].toUpperCase()
             return {
                 firstLetter,
-                ...option,
+                ...option
             }
         })
         .sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))
@@ -29,7 +29,6 @@ const SelectRegion = ({ control }: Props) => {
             groupBy={(option) => option.firstLetter!}
             getOptionLabel={(option) => option.text || ''}
             isOptionEqualToValue={(option, value) => option.text === value.text}
-
         />
     )
 }

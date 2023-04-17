@@ -18,12 +18,12 @@ interface Props<MenuItem extends TMenuItem, T extends FormFields, TName extends 
 const SelectController = <
     MenuItem extends TMenuItem = TMenuItem,
     T extends FormFields = FormFields,
-    TName extends FieldPath<T> = FieldPath<T>,
+    TName extends FieldPath<T> = FieldPath<T>
 >({
     name,
     control,
     label,
-    menuItems,
+    menuItems
 }: Props<MenuItem, T, TName>) => {
     return (
         <Controller

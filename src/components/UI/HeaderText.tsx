@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from '@mui/material'
 
-interface Props extends TypographyProps{
+interface Props extends TypographyProps {
     children: string
 }
 

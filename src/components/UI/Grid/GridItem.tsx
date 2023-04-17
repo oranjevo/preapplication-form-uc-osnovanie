@@ -6,9 +6,7 @@ interface Props extends Grid2Props {
 }
 
 const GridItem = ({ children, ...props }: Props) => {
-    return (
-        <Grid2 {...props}>{children}</Grid2>
-    )
+    return <Grid2 {...props}>{children}</Grid2>
 }
 
 export default GridItem

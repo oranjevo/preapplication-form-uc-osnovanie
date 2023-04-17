@@ -24,7 +24,7 @@ const AutocompleteController = <T, F extends FormFields = FormFields>({
         <Controller
             name={name}
             control={control}
-            render={({ field: {value, onChange, ...fieldProps}}) => (
+            render={({ field: { value, onChange, ...fieldProps } }) => (
                 <GridItem md={6}>
                     <Autocomplete
                         {...fieldProps}
@@ -34,11 +34,7 @@ const AutocompleteController = <T, F extends FormFields = FormFields>({
                         inputValue={value || ''}
                         onInputChange={(_, value) => onChange(value)}
                         renderInput={(params) => (
-                            <TextField
-                                variant={'standard'}
-                                label={label}
-                                {...params}
-                            />
+                            <TextField variant={'standard'} label={label} {...params} />
                         )}
                     />
                 </GridItem>

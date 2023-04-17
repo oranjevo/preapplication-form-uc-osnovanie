@@ -1,15 +1,16 @@
 import { ReactNode } from 'react'
-import Grid2, {Grid2Props} from '@mui/material/Unstable_Grid2'
+import Grid2, { Grid2Props } from '@mui/material/Unstable_Grid2'
 
-
-interface Props extends Grid2Props{
+interface Props extends Grid2Props {
     children: ReactNode
 }
 
-const GridContainer = ({ children, ...rest }: Props  ) => {
+const GridContainer = ({ children, ...rest }: Props) => {
     return (
         <>
-            <Grid2 container {...rest}>{children}</Grid2>
+            <Grid2 container {...rest}>
+                {children}
+            </Grid2>
         </>
     )
 }

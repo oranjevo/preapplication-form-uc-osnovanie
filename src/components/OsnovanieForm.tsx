@@ -17,13 +17,13 @@ const OsnovanieForm = ({ ...props }: Props) => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: 'center',
+                alignItems: 'center'
             }}
         >
             <HeaderText maxWidth={400} mt={5}>
                 Оформите заявку на получение электронной подписи
             </HeaderText>
-            <FormContainer {...props} sx={{marginTop: 5}}>
+            <FormContainer {...props} sx={{ marginTop: 5 }}>
                 <SelectPartyType control={control} />
                 <SelectRegion control={control} />
             </FormContainer>

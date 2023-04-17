@@ -10,7 +10,7 @@ const SelectPartyType = ({ control }: Props) => {
     const menuItems = [
         { text: 'Физическое лицо', value: '1' },
         { text: 'Индивидуальный предпринематель', value: '2' },
-        { text: 'Юридическое лицо', value: '3' },
+        { text: 'Юридическое лицо', value: '3' }
     ]
     return (
         <SelectController<PartyTypeItem>
