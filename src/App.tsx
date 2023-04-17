@@ -1,8 +1,9 @@
 import './index.sass'
+import OsnovanieForm from '@/components/OsnovanieForm'
 
 
-function App() {
-    return <></>
+const App = () => {
+    return <OsnovanieForm />
 }
 
 export default App
