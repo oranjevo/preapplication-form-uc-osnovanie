@@ -1,10 +1,23 @@
 import { FieldValues } from 'react-hook-form'
+import { AutocompleteProps } from '@mui/material'
 
-type PartyType = '1' | '2' | '3' | string
+export enum PartyType {
+    individual = 1,
+    entrepreneur,
+    company
+}
 
-export interface PartyTypeItem {
+type UnionPartyType = `${PartyType}`
+
+export type TMenuItem = {
+    value: string
     text: string
-    value: PartyType
+    id?: number
+    price?: number
+}
+
+export interface PartyTypeItem extends TMenuItem {
+    value: string | UnionPartyType
 }
 
 export interface Region {
@@ -12,11 +25,29 @@ export interface Region {
     text: string
     firstLetter?: string
 }
+interface Price {
+    fl: number
+    ip: number
+    ur: number
+}
 
-interface Product {}
+interface OID {
+    oid: string
+    description: string
+}
+
+export interface Product {
+    id: number
+    name: string
+    price: Price
+    oids: OID[]
+    required: boolean
+    subitemsType: any
+    subitems: any
+}
 
 export interface FormFields extends FieldValues {
-    partyType: PartyType
+    partyType: string | UnionPartyType
     firstname: string
     lastname: string
     inn: string
@@ -24,6 +55,16 @@ export interface FormFields extends FieldValues {
     email: string
     region: string
     city: string
-    products: Product[]
+    product: string
     comment: string
 }
+
+export interface FieldParams {
+    LABEL: string
+    PLACEHOLDER: string | undefined
+}
+
+export type CustomAutocompleteProps<T> = Omit<
+    AutocompleteProps<T, undefined, undefined, false>,
+    'renderInput'
+>
