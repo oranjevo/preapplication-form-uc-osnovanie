@@ -6,10 +6,10 @@ interface Props extends FormControlProps {
     children: ReactNode
 }
 
-const FormContainer = ({ children, ...props }: Props) => {
+const FormContainer = ({ children, ...formControlProps }: Props) => {
     return (
-        <FormControl {...props} fullWidth>
-            <GridContainer spacing={5} maxWidth={'md'}>
+        <FormControl {...formControlProps} fullWidth>
+            <GridContainer spacing={5} width={'md'}>
                 {children}
             </GridContainer>
         </FormControl>

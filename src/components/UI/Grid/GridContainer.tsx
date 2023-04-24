@@ -5,13 +5,11 @@ interface Props extends Grid2Props {
     children: ReactNode
 }
 
-const GridContainer = ({ children, ...rest }: Props) => {
+const GridContainer = ({ children, ...grid2Props }: Props) => {
     return (
-        <>
-            <Grid2 container {...rest}>
-                {children}
-            </Grid2>
-        </>
+        <Grid2 container {...grid2Props}>
+            {children}
+        </Grid2>
     )
 }
 

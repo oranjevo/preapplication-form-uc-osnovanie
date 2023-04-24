@@ -4,9 +4,15 @@ interface Props extends TypographyProps {
     children: string
 }
 
-const HeaderText = ({ children, ...props }: Props) => {
+const HeaderText = ({ children, ...typographyProps }: Props) => {
     return (
-        <Typography variant={'h2'} fontWeight={500} fontSize={26} textAlign={'center'} {...props}>
+        <Typography
+            variant={'h2'}
+            fontWeight={500}
+            fontSize={24}
+            textAlign={'center'}
+            {...typographyProps}
+        >
             {children}
         </Typography>
     )

@@ -2,6 +2,7 @@ import AutocompleteController from '@/components/UI/Control/AutocompleteControll
 import { FormFields, Region } from '@/types'
 import { Control } from 'react-hook-form'
 import { REGIONS } from '@/constants/REGIONS'
+import { FIELDS } from '@/constants/FIELDS'
 
 interface Props {
     control: Control<FormFields>
@@ -25,7 +26,7 @@ const SelectRegion = ({ control }: Props) => {
             control={control}
             options={options || []}
             name={'region'}
-            label={'Регион'}
+            fieldParams={FIELDS.REGION}
             groupBy={(option) => option.firstLetter!}
             getOptionLabel={(option) => option.text || ''}
             isOptionEqualToValue={(option, value) => option.text === value.text}

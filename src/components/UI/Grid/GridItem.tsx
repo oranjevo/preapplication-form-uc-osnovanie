@@ -5,8 +5,8 @@ interface Props extends Grid2Props {
     children: ReactNode
 }
 
-const GridItem = ({ children, ...props }: Props) => {
-    return <Grid2 {...props}>{children}</Grid2>
+const GridItem = ({ children, ...grid2Props }: Props) => {
+    return <Grid2 {...grid2Props}>{children}</Grid2>
 }
 
 export default GridItem
