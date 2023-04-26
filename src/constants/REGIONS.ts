@@ -1,4 +1,4 @@
-import { Region } from '@/types'
+import { Region } from 'types'
 
 export const REGIONS: Region[] = [
     { value: '1', text: 'Республика Адыгея (Адыгея)' },
