@@ -7,7 +7,7 @@ export enum PartyType {
     company
 }
 
-type UnionPartyType = `${PartyType}`
+export type UnionPartyType = `${PartyType}`
 
 export type TMenuItem = {
     value: string
@@ -68,3 +68,5 @@ export type CustomAutocompleteProps<T> = Omit<
     AutocompleteProps<T, undefined, undefined, false>,
     'renderInput'
 >
+
+export type PickField<T extends keyof FormFields> = Pick<FormFields, T>
