@@ -1,18 +1,23 @@
+import GridContainer from 'components/UI/Grid/GridContainer'
 import { FormControl, FormControlProps } from '@mui/material'
 import { ReactNode } from 'react'
-import GridContainer from '@/components/UI/Grid/GridContainer'
+import { FormProvider, UseFormReturn } from 'react-hook-form'
+import { FormFields } from 'types'
 
 interface Props extends FormControlProps {
-    children: ReactNode
+    reactHookFormMethods: UseFormReturn<FormFields>
+    children: ReactNode | ReactNode[]
 }
 
-const FormContainer = ({ children, ...formControlProps }: Props) => {
+const FormContainer = ({ reactHookFormMethods, children, ...formControlProps }: Props) => {
     return (
-        <FormControl {...formControlProps} fullWidth>
-            <GridContainer spacing={5} width={'md'}>
-                {children}
-            </GridContainer>
-        </FormControl>
+        <FormProvider {...reactHookFormMethods}>
+            <FormControl {...formControlProps} fullWidth>
+                <GridContainer spacing={5} width={'md'}>
+                    {children}
+                </GridContainer>
+            </FormControl>
+        </FormProvider>
     )
 }
 

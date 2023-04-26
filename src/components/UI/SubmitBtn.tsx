@@ -1,27 +1,34 @@
+import GridItem from 'components/UI/Grid/GridItem'
 import { Button, ButtonProps } from '@mui/material'
-import GridItem from '@/components/UI/Grid/GridItem'
 import { makeStyles } from 'tss-react/mui'
+import { useFormContext } from 'react-hook-form'
+import { FormFields } from 'types'
 
 const useStyles = makeStyles()((theme) => ({
-    btn: {
+    root: {
         height: '50px',
         width: '280px',
         textTransform: 'none',
         marginTop: theme.spacing(2)
-    },
-    grid: {
-        display: 'flex',
-        justifyContent: 'center'
     }
 }))
 
-interface Props extends ButtonProps {}
+interface Props extends ButtonProps {
+    submitHandler: () => void
+}
 
-const SubmitBtn = ({ ...btnProps }: Props) => {
+const SubmitBtn = ({ submitHandler, ...btnProps }: Props) => {
+    const { handleSubmit } = useFormContext<FormFields>()
     const { classes } = useStyles()
     return (
-        <GridItem className={classes.grid} sm={12}>
-            <Button className={classes.btn} type={'submit'} variant={'contained'} {...btnProps}>
+        <GridItem display={'flex'} justifyContent={'center'} sm={12}>
+            <Button
+                classes={classes}
+                type={'submit'}
+                variant={'contained'}
+                onClick={handleSubmit(submitHandler)}
+                {...btnProps}
+            >
                 Отправить заявку
             </Button>
         </GridItem>

@@ -1,20 +1,12 @@
-import FieldController from '@/components/UI/Control/FieldController'
-import { Control } from 'react-hook-form'
-import { FormFields } from '@/types'
-import { FIELDS } from '@/constants/FIELDS'
+import { Field } from 'components/UI/Control/Field'
+import { FIELDS } from 'constants/FIELDS'
+import { useFormContext } from 'react-hook-form'
+import { FormFields } from 'types'
 
-interface Props {
-    control: Control<FormFields>
-}
-const Email = ({ control }: Props) => {
-    return (
-        <FieldController
-            name={'email'}
-            type={'email'}
-            control={control}
-            fieldParams={FIELDS.EMAIL}
-        />
-    )
+const Email = () => {
+    const { control } = useFormContext<FormFields>()
+
+    return <Field name={'email'} type={'email'} control={control} fieldParams={FIELDS.EMAIL} />
 }
 
 export default Email

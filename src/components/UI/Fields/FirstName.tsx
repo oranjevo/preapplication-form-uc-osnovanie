@@ -1,19 +1,13 @@
-import FieldController from '@/components/UI/Control/FieldController'
-import { Control } from 'react-hook-form'
-import { FormFields } from '@/types'
-import { FIELDS } from '@/constants/FIELDS'
+import { Field } from 'components/UI/Control/Field'
+import { FIELDS } from 'constants/FIELDS'
+import { useFormContext } from 'react-hook-form'
+import { FormFields } from 'types'
 
-interface Props {
-    control: Control<FormFields>
-}
-const FirstName = ({ control }: Props) => {
+const FirstName = () => {
+    const { control } = useFormContext<FormFields>()
+
     return (
-        <FieldController
-            name={'firstname'}
-            type={'text'}
-            control={control}
-            fieldParams={FIELDS.FIRSTNAME}
-        />
+        <Field name={'firstname'} type={'text'} control={control} fieldParams={FIELDS.FIRSTNAME} />
     )
 }
 

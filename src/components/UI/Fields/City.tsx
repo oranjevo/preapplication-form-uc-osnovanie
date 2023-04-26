@@ -1,16 +1,12 @@
-import FieldController from '@/components/UI/Control/FieldController'
-import { Control } from 'react-hook-form'
-import { FormFields } from '@/types'
-import { FIELDS } from '@/constants/FIELDS'
+import { Field } from 'components/UI/Control/Field'
+import { FIELDS } from 'constants/FIELDS'
+import { useFormContext } from 'react-hook-form'
+import { FormFields } from 'types'
 
-interface Props {
-    control: Control<FormFields>
-}
+const City = () => {
+    const { control } = useFormContext<FormFields>()
 
-const City = ({ control }: Props) => {
-    return (
-        <FieldController name={'city'} type={'text'} control={control} fieldParams={FIELDS.CITY} />
-    )
+    return <Field name={'city'} type={'text'} control={control} fieldParams={FIELDS.CITY} />
 }
 
 export default City

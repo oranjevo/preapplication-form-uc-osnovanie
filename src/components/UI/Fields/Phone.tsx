@@ -1,16 +1,32 @@
-import { Control } from 'react-hook-form'
-import { FormFields } from '@/types'
-import { FIELDS } from '@/constants/FIELDS'
-import FieldController from '@/components/UI/Control/FieldController'
+import { Field } from 'components/UI/Control/Field'
+import { FIELDS } from 'constants/FIELDS'
+import { useFormContext } from 'react-hook-form'
+import { FormFields } from 'types'
 
-interface Props {
-    control: Control<FormFields>
-}
-
-const Phone = ({ control }: Props) => {
-    const mask = ['+','7',' ','(',/[1-9]/,/\d/,/\d/,')',' ',/\d/,/\d/,/\d/,' ',/\d/,/\d/,' ',/\d/,/\d/]
+const Phone = () => {
+    const { control } = useFormContext<FormFields>()
+    const mask = [
+        '+',
+        '7',
+        ' ',
+        '(',
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ')',
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/
+    ]
     return (
-        <FieldController
+        <Field
             name={'phone'}
             type={'tel'}
             mask={mask}

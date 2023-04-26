@@ -1,14 +1,11 @@
-import AutocompleteController from '@/components/UI/Control/AutocompleteController'
-import { FormFields, Region } from '@/types'
-import { Control } from 'react-hook-form'
-import { REGIONS } from '@/constants/REGIONS'
-import { FIELDS } from '@/constants/FIELDS'
+import { Autocomplete } from 'components/UI/Control/Autocomplete'
+import { FIELDS } from 'constants/FIELDS'
+import { REGIONS } from 'constants/REGIONS'
+import { useFormContext } from 'react-hook-form'
+import { FormFields, Region } from 'types'
 
-interface Props {
-    control: Control<FormFields>
-}
-
-const SelectRegion = ({ control }: Props) => {
+const SelectRegion = () => {
+    const { control } = useFormContext<FormFields>()
     const availableCodes = ['1', '2', '3', '4', '5']
     const options = REGIONS.filter((option) => availableCodes.includes(option.value))
         .map((option) => {
@@ -22,7 +19,7 @@ const SelectRegion = ({ control }: Props) => {
     console.log(options)
 
     return (
-        <AutocompleteController<Region>
+        <Autocomplete<Region>
             control={control}
             options={options || []}
             name={'region'}
