@@ -19,6 +19,10 @@ export const FIELDS = {
         LABEL: 'ИНН',
         PLACEHOLDER: '000000000000'
     },
+    INN_COMPANY: {
+        LABEL: 'ИНН организации',
+        PLACEHOLDER: '0000000000'
+    },
     LASTNAME: {
         LABEL: 'Фамилия',
         PLACEHOLDER: 'Иванов'
