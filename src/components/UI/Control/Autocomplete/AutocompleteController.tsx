@@ -1,23 +1,10 @@
-import { Control, Controller } from 'react-hook-form'
-import { Autocomplete, TextField } from '@mui/material'
-import GridItem from '@/components/UI/Grid/GridItem'
-import { CustomAutocompleteProps, FormFields, FieldParams } from '@/types'
-import { FieldPath } from 'react-hook-form/dist/types'
+import GridItem from 'components/UI/Grid/GridItem'
+import { useStyles } from 'components/UI/Control/Autocomplete/AutocompleteStyled'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
-import { makeStyles } from 'tss-react/mui'
-
-const useStyles = makeStyles()((theme) => ({
-    root: {
-        '& label': {
-            paddingLeft: theme.spacing(1),
-            fontSize: '15px'
-        },
-        '& input': {
-            paddingLeft: `${theme.spacing(2)} !important`,
-            fontSize: '14px'
-        }
-    }
-}))
+import { Autocomplete, TextField } from '@mui/material'
+import { Control, Controller } from 'react-hook-form'
+import { FieldPath } from 'react-hook-form/dist/types'
+import { CustomAutocompleteProps, FieldParams, FormFields } from 'types'
 
 interface Props<T, Fields extends FormFields> extends CustomAutocompleteProps<T> {
     fieldParams: FieldParams
@@ -41,14 +28,11 @@ const AutocompleteController = <T, Fields extends FormFields = FormFields>({
         <Controller
             name={name}
             control={control}
-            render={({
-                field: { value, onChange, ...controlProps },
-                fieldState: { error, invalid }
-            }) => (
+            render={({ field: { value, onChange, ...controlProps }, fieldState: { error } }) => (
                 <GridItem sm={6} {...gridProps}>
                     <Autocomplete
                         fullWidth
-                        className={classes.root}
+                        classes={classes}
                         autoComplete={false}
                         noOptionsText={'Нет совпадений'}
                         inputValue={value || ''}
@@ -57,8 +41,8 @@ const AutocompleteController = <T, Fields extends FormFields = FormFields>({
                             <TextField
                                 variant={'standard'}
                                 label={LABEL}
-                                error={invalid}
-                                helperText={invalid ? error?.message : helperText}
+                                error={!!error}
+                                helperText={error?.message ?? helperText}
                                 placeholder={PLACEHOLDER}
                                 {...params}
                             />
