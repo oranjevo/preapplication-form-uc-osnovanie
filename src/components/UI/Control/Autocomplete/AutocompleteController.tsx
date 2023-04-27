@@ -2,13 +2,12 @@ import { useStyles } from './AutocompleteStyled'
 import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { Autocomplete, TextField } from '@mui/material'
-import { Control, Controller } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 import { FieldPath } from 'react-hook-form/dist/types'
 import { CustomAutocompleteProps, FieldParams, FormFields } from 'types'
 
 interface Props<T, Fields extends FormFields> extends CustomAutocompleteProps<T> {
     fieldParams: FieldParams
-    control: Control<Fields>
     name: FieldPath<Fields>
     helperText?: string
     gridProps?: Grid2Props
@@ -16,13 +15,13 @@ interface Props<T, Fields extends FormFields> extends CustomAutocompleteProps<T>
 
 const AutocompleteController = <T, Fields extends FormFields = FormFields>({
     name,
-    control,
     fieldParams,
     helperText,
     gridProps,
     ...autocompleteProps
 }: Props<T, Fields>) => {
     const { LABEL, PLACEHOLDER } = fieldParams
+    const { control } = useFormContext<FormFields>()
     const { classes } = useStyles()
     return (
         <Controller

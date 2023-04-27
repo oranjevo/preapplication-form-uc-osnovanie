@@ -4,7 +4,7 @@ import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material'
 import { SelectProps, MenuItemProps } from '@mui/material'
-import { Control, Controller } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 import { FieldPath } from 'react-hook-form/dist/types'
 import { FieldParams, FormFields, TMenuItem } from 'types'
 
@@ -15,7 +15,6 @@ interface Props<
 > extends SelectProps {
     fieldParams: FieldParams
     menuItems: MenuItem[]
-    control: Control<Fields>
     name: TName
     helperText?: string
     menuItemProps?: MenuItemProps
@@ -28,7 +27,6 @@ const SelectController = <
     TName extends FieldPath<Fields> = FieldPath<Fields>
 >({
     name,
-    control,
     fieldParams,
     menuItems,
     helperText,
@@ -37,6 +35,7 @@ const SelectController = <
     ...selectProps
 }: Props<MenuItem, Fields, TName>) => {
     const { LABEL, PLACEHOLDER } = fieldParams
+    const { control } = useFormContext<FormFields>()
     const { classes } = useStyles()
     return (
         <Controller

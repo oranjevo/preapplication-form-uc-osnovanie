@@ -2,13 +2,12 @@ import { useStyles } from './FieldStyled'
 import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { StandardTextFieldProps, TextField } from '@mui/material'
-import { Control, Controller } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 import { FormFields, FieldParams } from 'types'
 import { FieldPath } from 'react-hook-form/dist/types'
 import MaskedInput, { Mask } from 'react-text-mask'
 
 interface Props<T extends FormFields, TName extends FieldPath<T>> extends StandardTextFieldProps {
-    control: Control<T>
     fieldParams: FieldParams
     name: TName
     mask?: Mask
@@ -21,7 +20,6 @@ const FieldController = <
     TName extends FieldPath<T> = FieldPath<T>
 >({
     name,
-    control,
     fieldParams,
     helperText,
     gridProps,
@@ -29,6 +27,7 @@ const FieldController = <
     ...textFieldProps
 }: Props<T, TName>) => {
     const { LABEL, PLACEHOLDER } = fieldParams
+    const { control } = useFormContext<FormFields>()
     const { classes } = useStyles()
     return (
         <Controller

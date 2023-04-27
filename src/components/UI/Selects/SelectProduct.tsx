@@ -1,11 +1,9 @@
 import { Select } from 'components/UI/Control/Select'
 import { FIELDS } from 'constants/FIELDS'
 import { apiResponse } from 'constants/productResponse'
-import { useFormContext } from 'react-hook-form'
-import { FormFields, TMenuItem } from 'types'
+import { TMenuItem } from 'types'
 
 const SelectProduct = () => {
-    const { control } = useFormContext<FormFields>()
     const flProducts = apiResponse.filter((product) => {
         return product.price.fl !== -1
     })
@@ -22,7 +20,6 @@ const SelectProduct = () => {
 
     return (
         <Select
-            control={control}
             fieldParams={FIELDS.PRODUCTS}
             name={'product'}
             menuItems={menuItems}

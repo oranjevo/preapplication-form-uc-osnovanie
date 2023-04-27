@@ -1,10 +1,7 @@
 import { Field } from 'components/UI/Control/Field'
 import { FIELDS } from 'constants/FIELDS'
-import { useFormContext } from 'react-hook-form'
-import { FormFields } from 'types'
 
 const Phone = () => {
-    const { control } = useFormContext<FormFields>()
     const mask = [
         '+',
         '7',
@@ -30,7 +27,6 @@ const Phone = () => {
             name={'phone'}
             type={'tel'}
             mask={mask}
-            control={control}
             fieldParams={FIELDS.PHONE}
         />
     )
