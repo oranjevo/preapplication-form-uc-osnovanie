@@ -1,4 +1,4 @@
-import PriceHolder from 'components/UI/PriceHolder'
+import { PriceHolder } from 'components/UI'
 import { Typography, TypographyProps } from '@mui/material'
 import { TMenuItem } from 'types'
 
@@ -17,4 +17,4 @@ const MenuItemInner = <T extends TMenuItem>({ item, ...typographyProps }: Props<
     )
 }
 
-export default MenuItemInner
+export { MenuItemInner }

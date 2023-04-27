@@ -21,4 +21,4 @@ const SelectPartyType = () => {
     )
 }
 
-export default SelectPartyType
+export { SelectPartyType }

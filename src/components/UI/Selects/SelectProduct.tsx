@@ -30,4 +30,4 @@ const SelectProduct = () => {
     )
 }
 
-export default SelectProduct
+export { SelectProduct }

@@ -1,4 +1,4 @@
-import GridContainer from 'components/UI/Grid/GridContainer'
+import { GridContainer } from 'components/UI/Grid'
 import { FormControl, FormControlProps } from '@mui/material'
 import { ReactNode } from 'react'
 import { FormProvider, UseFormReturn } from 'react-hook-form'
@@ -21,4 +21,4 @@ const FormContainer = ({ reactHookFormMethods, children, ...formControlProps }: 
     )
 }
 
-export default FormContainer
+export { FormContainer }

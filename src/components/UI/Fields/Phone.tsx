@@ -36,4 +36,4 @@ const Phone = () => {
     )
 }
 
-export default Phone
+export { Phone }

@@ -5,10 +5,9 @@ import { FormFields } from 'types'
 
 const FirstName = () => {
     const { control } = useFormContext<FormFields>()
-
     return (
         <Field name={'firstname'} type={'text'} control={control} fieldParams={FIELDS.FIRSTNAME} />
     )
 }
 
-export default FirstName
+export { FirstName }

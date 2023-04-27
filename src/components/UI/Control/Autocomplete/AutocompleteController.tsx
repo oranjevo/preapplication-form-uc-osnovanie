@@ -1,5 +1,5 @@
-import GridItem from 'components/UI/Grid/GridItem'
-import { useStyles } from 'components/UI/Control/Autocomplete/AutocompleteStyled'
+import { useStyles } from './AutocompleteStyled'
+import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { Autocomplete, TextField } from '@mui/material'
 import { Control, Controller } from 'react-hook-form'
@@ -56,4 +56,4 @@ const AutocompleteController = <T, Fields extends FormFields = FormFields>({
     )
 }
 
-export default AutocompleteController
+export { AutocompleteController }

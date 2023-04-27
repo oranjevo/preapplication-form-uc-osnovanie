@@ -1,1 +1,1 @@
-export { default as Select } from './SelectController'
+export { SelectController as Select } from './SelectController'

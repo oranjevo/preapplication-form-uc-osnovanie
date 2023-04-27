@@ -1,5 +1,5 @@
-import GridItem from 'components/UI/Grid/GridItem'
-import { useStyles } from 'components/UI/Control/Field/FieldStyled'
+import { useStyles } from './FieldStyled'
+import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { StandardTextFieldProps, TextField } from '@mui/material'
 import { Control, Controller } from 'react-hook-form'
@@ -63,4 +63,4 @@ const FieldController = <
     )
 }
 
-export default FieldController
+export { FieldController }

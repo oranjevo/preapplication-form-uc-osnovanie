@@ -16,7 +16,6 @@ const SelectRegion = () => {
             }
         })
         .sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))
-    console.log(options)
 
     return (
         <Autocomplete<Region>
@@ -31,4 +30,4 @@ const SelectRegion = () => {
     )
 }
 
-export default SelectRegion
+export { SelectRegion }

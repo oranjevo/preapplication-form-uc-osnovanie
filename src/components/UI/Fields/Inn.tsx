@@ -9,4 +9,4 @@ const Inn = () => {
     return <Field name={'inn'} type={'text'} control={control} fieldParams={FIELDS.INN} />
 }
 
-export default Inn
+export { Inn }

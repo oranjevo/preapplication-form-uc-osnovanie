@@ -13,4 +13,4 @@ const GridContainer = ({ children, ...grid2Props }: Props) => {
     )
 }
 
-export default GridContainer
+export { GridContainer }

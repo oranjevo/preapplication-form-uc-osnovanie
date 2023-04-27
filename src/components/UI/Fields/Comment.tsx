@@ -9,4 +9,4 @@ const Comment = () => {
     return <Field name={'comment'} type={'text'} control={control} fieldParams={FIELDS.COMMENT} />
 }
 
-export default Comment
+export { Comment }

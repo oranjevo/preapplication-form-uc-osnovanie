@@ -1,6 +1,6 @@
-import GridItem from 'components/UI/Grid/GridItem'
-import MenuItemInner from 'components/UI/Control/Select/MenuItemInner'
-import { useStyles } from 'components/UI/Control/Select/SelectStyled'
+import { MenuItemInner } from './MenuItemInner'
+import { useStyles } from './SelectStyled'
+import { GridItem } from 'components/UI/Grid'
 import { Grid2Props } from '@mui/material/Unstable_Grid2'
 import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material'
 import { SelectProps, MenuItemProps } from '@mui/material'
@@ -56,7 +56,11 @@ const SelectController = <
                             {...controlProps}
                         >
                             {menuItems.map((menuItem, index) => (
-                                <MenuItem key={index} value={menuItem.value || menuItem?.id} {...menuItemProps}>
+                                <MenuItem
+                                    key={index}
+                                    value={menuItem.value || menuItem?.id}
+                                    {...menuItemProps}
+                                >
                                     <MenuItemInner item={menuItem} />
                                 </MenuItem>
                             ))}
@@ -71,4 +75,4 @@ const SelectController = <
     )
 }
 
-export default SelectController
+export { SelectController }

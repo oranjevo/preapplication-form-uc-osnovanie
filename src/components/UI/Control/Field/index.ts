@@ -1,1 +1,1 @@
-export { default as Field } from './FieldController'
+export { FieldController as Field } from './FieldController'

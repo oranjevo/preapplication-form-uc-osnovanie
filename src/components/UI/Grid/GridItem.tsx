@@ -9,4 +9,4 @@ const GridItem = ({ children, ...grid2Props }: Props) => {
     return <Grid2 {...grid2Props}>{children}</Grid2>
 }
 
-export default GridItem
+export { GridItem }

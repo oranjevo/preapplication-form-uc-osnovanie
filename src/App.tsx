@@ -1,5 +1,5 @@
 import './index.sass'
-import OsnovanieForm from 'components/OsnovanieForm'
+import { OsnovanieForm } from 'components/OsnovanieForm'
 import { createTheme, ThemeProvider } from '@mui/material'
 
 const theme = createTheme({
@@ -28,4 +28,4 @@ const App = () => {
     )
 }
 
-export default App
+export { App }

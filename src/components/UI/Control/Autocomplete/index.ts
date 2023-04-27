@@ -1,1 +1,1 @@
-export { default as Autocomplete } from './AutocompleteController'
+export { AutocompleteController as Autocomplete } from './AutocompleteController'

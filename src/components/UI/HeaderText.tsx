@@ -18,4 +18,4 @@ const HeaderText = ({ children, ...typographyProps }: Props) => {
     )
 }
 
-export default HeaderText
+export { HeaderText }

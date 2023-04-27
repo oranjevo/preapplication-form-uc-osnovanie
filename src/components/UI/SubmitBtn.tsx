@@ -1,4 +1,4 @@
-import GridItem from 'components/UI/Grid/GridItem'
+import { GridItem } from 'components/UI/Grid'
 import { Button, ButtonProps } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 import { useFormContext } from 'react-hook-form'
@@ -35,4 +35,4 @@ const SubmitBtn = ({ submitHandler, ...btnProps }: Props) => {
     )
 }
 
-export default SubmitBtn
+export { SubmitBtn }

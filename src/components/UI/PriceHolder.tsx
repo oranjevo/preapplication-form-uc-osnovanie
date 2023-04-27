@@ -26,4 +26,4 @@ const PriceHolder = ({ price, ...boxProps }: Props) => {
     )
 }
 
-export default PriceHolder
+export { PriceHolder }
