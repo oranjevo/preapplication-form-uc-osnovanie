@@ -1,8 +1,8 @@
-import { Field } from 'components/UI/Control/Field'
+import { TextField } from 'components/UI/Control/TextField'
 import { FIELDS } from 'constants/FIELDS'
 
 const City = () => {
-    return <Field name={'city'} type={'text'} fieldParams={FIELDS.CITY} />
+    return <TextField name={'city'} type={'text'} fieldParams={FIELDS.CITY} />
 }
 
 export { City }

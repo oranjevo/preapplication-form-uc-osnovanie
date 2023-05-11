@@ -1,8 +1,8 @@
-import { Field } from 'components/UI/Control/Field'
+import { TextField } from 'components/UI/Control/TextField'
 import { FIELDS } from 'constants/FIELDS'
 
 const Comment = () => {
-    return <Field name={'comment'} type={'text'} fieldParams={FIELDS.COMMENT} />
+    return <TextField name={'comment'} type={'text'} fieldParams={FIELDS.COMMENT} />
 }
 
 export { Comment }
