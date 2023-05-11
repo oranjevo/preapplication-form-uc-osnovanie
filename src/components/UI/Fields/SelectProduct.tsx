@@ -18,13 +18,7 @@ const SelectProduct = () => {
         return menuItems
     }, [])
 
-    return (
-        <Select
-            fieldParams={FIELDS.PRODUCTS}
-            name={'product'}
-            menuItems={menuItems}
-        />
-    )
+    return <Select fieldParams={FIELDS.PRODUCTS} name={'product'} menuItems={menuItems} />
 }
 
 export { SelectProduct }
