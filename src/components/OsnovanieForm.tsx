@@ -1,56 +1,69 @@
-import { Phone, Inn, LastName, FirstName, Email, Comment, City } from 'components/UI/Fields'
-import { SelectProduct, SelectPartyType, SelectRegion } from 'components/UI/Selects'
-import { SubmitBtn, HeaderText, FormContainer } from 'components/UI'
-import { Container } from '@mui/material'
+import {
+    Phone,
+    Inn,
+    LastName,
+    FirstName,
+    Email,
+    Comment,
+    City,
+    SelectProduct,
+    SelectPartyType,
+    SelectRegion
+} from 'components/UI/Fields'
+import { Button, HeaderText, FormContainer } from 'components/UI'
 import { useForm } from 'react-hook-form'
 import { osnovanieFormSchema } from 'validation/schemas/OsnovanieForm.schema'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { FormFields } from 'types'
-import { useFormState } from 'store/useFormState'
+import { IFormFields } from 'types'
+import { useFormState } from 'hooks/useFormState'
+import { DoneFillForm } from './DoneFillForm'
 
 const OsnovanieForm = () => {
-    const defaultValues = useFormState((state) => state.formFields)
-    const methods = useForm<FormFields>({
+    const fields = useFormState.useFields()
+    const resetFields = useFormState.useResetFields()
+    const status = useFormState.useStatus()
+    const toggleStatus = useFormState.useToggleStatus()
+    const methods = useForm<IFormFields>({
         mode: 'onBlur',
         reValidateMode: 'onSubmit',
-        defaultValues: defaultValues,
         resolver: yupResolver(osnovanieFormSchema),
-        shouldFocusError: false
+        defaultValues: fields
     })
+    const { reset, handleSubmit } = methods
 
-    const submitHandler = () => {}
+    const submitHandler = () => {
+        resetFields()
+        reset()
+        toggleStatus()
+    }
 
-    return (
-        <Container
-            maxWidth={'md'}
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}
-        >
-            <HeaderText maxWidth={400} mt={5}>
-                Оформите заявку на получение электронной подписи
-            </HeaderText>
-            <FormContainer
-                reactHookFormMethods={methods}
-                sx={{ marginTop: 5 }}
-                variant={'outlined'}
-            >
+    const newPreapplicationHandler = () => {
+        toggleStatus()
+    }
+
+    return status.done ? (
+        <DoneFillForm newPreapplicationHandler={newPreapplicationHandler} />
+    ) : (
+        <>
+            <HeaderText width={400}>Оформите заявку на получение электронной подписи</HeaderText>
+            <FormContainer reactHookFormMethods={methods}>
                 <SelectPartyType />
-                <Phone />
-                <FirstName />
-                <Email />
-                <LastName />
-                <SelectRegion />
-                <Inn />
-                <City />
                 <SelectProduct />
+                <FirstName />
+                <LastName />
+                <Email />
+                <Phone />
+                <SelectRegion />
+                <City />
+                <Inn />
                 <Comment />
-                <SubmitBtn submitHandler={submitHandler} />
+                <Button
+                    name={'Отправить заявку'}
+                    type={'submit'}
+                    onClick={handleSubmit(submitHandler)}
+                />
             </FormContainer>
-        </Container>
+        </>
     )
 }
 
