@@ -23,10 +23,11 @@
     "baseUrl": "src",
     "paths": {
       "types": ["./types.ts"],
-      "components": ["/components/*"],
-      "constants": ["/constants/*"],
-      "hooks": ["/hooks/*"],
-      "validation": ["/validation/*"],
+      "components": ["./components/*"],
+      "constants": ["./constants/*"],
+      "hooks": ["./hooks/*"],
+      "validation": ["./validation/*"],
+      "store": ["./store/*"]
     }
   },
   "include": ["vite.config.ts", "**/*.ts", "**/*.tsx"],
