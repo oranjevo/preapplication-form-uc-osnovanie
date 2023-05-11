@@ -6,14 +6,15 @@ import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/
 import { SelectProps, MenuItemProps } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { FieldPath } from 'react-hook-form/dist/types'
-import { FieldParams, FormFields, TMenuItem } from 'types'
+import { useFormState } from 'hooks/useFormState'
+import { IFieldParams, IFormFields, TMenuItem } from 'types'
 
 interface Props<
     MenuItem extends TMenuItem,
-    Fields extends FormFields,
+    Fields extends IFormFields,
     TName extends FieldPath<Fields>
 > extends SelectProps {
-    fieldParams: FieldParams
+    fieldParams: IFieldParams
     menuItems: MenuItem[]
     name: TName
     helperText?: string
@@ -23,7 +24,7 @@ interface Props<
 
 const SelectController = <
     MenuItem extends TMenuItem = TMenuItem,
-    Fields extends FormFields = FormFields,
+    Fields extends IFormFields = IFormFields,
     TName extends FieldPath<Fields> = FieldPath<Fields>
 >({
     name,
@@ -34,14 +35,18 @@ const SelectController = <
     gridProps,
     ...selectProps
 }: Props<MenuItem, Fields, TName>) => {
+    const setFields = useFormState.useSetFields()
     const { LABEL, PLACEHOLDER } = fieldParams
-    const { control } = useFormContext<FormFields>()
+    const { control } = useFormContext<IFormFields>()
     const { classes } = useStyles()
     return (
         <Controller
             name={name}
             control={control}
-            render={({ field: { ref, value, ...controlProps }, fieldState: { error } }) => (
+            render={({
+                field: { ref, value, onChange, ...controlProps },
+                fieldState: { error }
+            }) => (
                 <GridItem sm={6} {...gridProps}>
                     <FormControl variant={'standard'} classes={classes} fullWidth>
                         <InputLabel error={!!error}>{LABEL}</InputLabel>
@@ -51,6 +56,11 @@ const SelectController = <
                             error={!!error}
                             placeholder={PLACEHOLDER}
                             inputRef={ref}
+                            onChange={(event) => {
+                                const { name: fieldName, value } = event.target
+                                onChange(event)
+                                setFields(value as string, fieldName)
+                            }}
                             {...selectProps}
                             {...controlProps}
                         >
