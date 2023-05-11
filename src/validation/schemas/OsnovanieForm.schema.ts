@@ -6,7 +6,7 @@ export const osnovanieFormSchema = yup.object({
     lastname: yup.string().required().min(2).max(50),
     phone: yup.string().required().isPhoneNumber(),
     email: yup.string().required().email(),
-    region: yup.string().required(),
+    region: yup.object().required(),
     city: yup.string().required().min(2).max(30),
     product: yup.string().required(),
     comment: yup.string().max(200),
