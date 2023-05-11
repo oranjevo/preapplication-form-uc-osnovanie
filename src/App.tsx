@@ -1,6 +1,7 @@
 import './index.sass'
 import { OsnovanieForm } from 'components/OsnovanieForm'
-import { createTheme, ThemeProvider } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { ContentHolder } from './components/UI/ContentHolder'
 
 const theme = createTheme({
     palette: {
@@ -23,7 +24,9 @@ const theme = createTheme({
 const App = () => {
     return (
         <ThemeProvider theme={theme}>
-            <OsnovanieForm />
+            <ContentHolder>
+                <OsnovanieForm />
+            </ContentHolder>
         </ThemeProvider>
     )
 }
