@@ -1,6 +1,6 @@
-import { Region } from 'types'
+import { IAutocompleteOption } from 'types'
 
-export const REGIONS: Region[] = [
+export const REGIONS: IAutocompleteOption[] = [
     { value: '1', text: 'Республика Адыгея (Адыгея)' },
     { value: '2', text: 'Республика Башкортостан' },
     { value: '3', text: 'Республика Бурятия' },
