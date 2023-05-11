@@ -6,7 +6,11 @@ interface Props extends Grid2Props {
 }
 
 const GridItem = ({ children, ...grid2Props }: Props) => {
-    return <Grid2 {...grid2Props}>{children}</Grid2>
+    return (
+        <Grid2 minWidth={400} {...grid2Props}>
+            {children}
+        </Grid2>
+    )
 }
 
 export { GridItem }
