@@ -2,17 +2,17 @@ import { GridContainer } from 'components/UI/Grid'
 import { FormControl, FormControlProps } from '@mui/material'
 import { ReactNode } from 'react'
 import { FormProvider, UseFormReturn } from 'react-hook-form'
-import { FormFields } from 'types'
+import { IFormFields } from 'types'
 
 interface Props extends FormControlProps {
-    reactHookFormMethods: UseFormReturn<FormFields>
+    reactHookFormMethods: UseFormReturn<IFormFields>
     children: ReactNode | ReactNode[]
 }
 
 const FormContainer = ({ reactHookFormMethods, children, ...formControlProps }: Props) => {
     return (
         <FormProvider {...reactHookFormMethods}>
-            <FormControl {...formControlProps} fullWidth>
+            <FormControl fullWidth sx={{ marginTop: 5 }} {...formControlProps}>
                 <GridContainer spacing={5} width={'md'}>
                     {children}
                 </GridContainer>
